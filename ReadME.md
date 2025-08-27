@@ -6,7 +6,7 @@ This is my learning project for exploring REST APIs, SQL Server, and C#, and try
 
 ## What does it do?
 
-Connects to a SQL Server database and exposes the data as a JSON API.  
+Connects to a SQL Server database and exposes the data as a JSON API. The current code uses the provided .csv and .sql script with the database hosted locally by an SQL manager, but the code can easily be changed to run with other databases.
 You can query titles, directors, cast, descriptions—if it's in the table, it's accessible.
 
 ---
