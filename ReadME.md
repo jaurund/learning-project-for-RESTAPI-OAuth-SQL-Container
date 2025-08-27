@@ -23,6 +23,36 @@ Open your browser at [http://localhost:5174/swagger](http://localhost:5174/swagg
 
 ---
 
+## Setting up the Database
+
+1. **Create the database:**
+   - Open SSMS (or your preferred SQL client).
+   - Right-click "Databases" > "New Database..." and name it `csvNetflixDB`.
+   - Click OK to create the database.
+
+2. **Create the table:**
+   - Select the new `csvNetflixDB` database.
+   - Open the provided `CreateTable.sql` script in the ~\Database folder here in the project.
+   - Run the script to create the `NetflixDataset` table.
+
+3. **Import the CSV data:**
+   - In SSMS, right-click the `csvNetflixDB` database and choose "Tasks" > "Import Data".
+   - Select the `Netflix Dataset.csv` file as the source from the ~\Database folder in this project.
+   - Map columns as needed and complete the wizard.
+
+   *Alternatively, use a `BULK INSERT` command:*
+   ```sql
+   BULK INSERT dbo.NetflixDataset
+   FROM 'C:\Path\To\Netflix Dataset.csv'
+   WITH (
+       FIRSTROW = 2,
+       FIELDTERMINATOR = ',',
+       ROWTERMINATOR = '\n',
+       TEXTQUALIFIER = '"'
+   );
+   ```
+> **Note:** If your SQL Server instance name or authentication differs, update the connection string in `appsettings.json` accordingly.
+
 ## Endpoints
 
 - `GET /MyTable` — All data, all at once.
@@ -35,7 +65,8 @@ Open your browser at [http://localhost:5174/swagger](http://localhost:5174/swagg
 ## Requirements
 
 - .NET 9 SDK
-- SQL Server with the NetflixDataset table (Will be added to the repository)
+- The database itself (.csv and .sql-script to import it is included in the repository)
+- A program to host the SQL DataBase locally, like Microsoft SQL Server Management Studio (SSMS) or PostgreSQL
 - I use VScode as the IDE to build the project. If you are inexperienced, I recommend you using the same if you want to clone the repo.
 
 ---
@@ -62,3 +93,4 @@ This API is built to be extended, and not only by me.
 I will be very happy if I see forks with comments to help me learn and improve as a developer.
 
 ---
+
