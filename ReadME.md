@@ -110,6 +110,3 @@ These are automatically restored from the project file, but for reference:
 Open a pull request, file an issue, or fork away.  
 This API is built to be extended, and not only by me.
 I will be very happy if I see forks with comments to help me learn and improve as a developer.
-
-
-
