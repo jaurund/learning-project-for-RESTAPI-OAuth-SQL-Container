@@ -1,13 +1,13 @@
 # Netflix REST API
 
-This is my learning project for exploring REST APIs, SQL Server, and C#, and trying to host it all in a container using Docker desktop. 
+This is my learning project for exploring REST APIs, SQL Server, and C#, and trying to host it all in a container using Docker desktop.
 
 ---
 
 ## What does it do?
 
 Connects to a SQL Server database and exposes the data as a JSON API. The current code uses the provided .csv and .sql script with the database hosted locally by an SQL manager, but the code can easily be changed to run with other databases.
-You can query titles, directors, cast, descriptions—if it's in the table, it's accessible.
+You can query titles, directors, cast, descriptions and so on through the frontend — if it's in the table and has a controller, it's accessible.
 
 ---
 
@@ -32,12 +32,12 @@ Open your browser at [http://localhost:5174/swagger](http://localhost:5174/swagg
 
 2. **Create the table:**
    - Select the new `csvNetflixDB` database.
-   - Open the provided `CreateTable.sql` script in the ~\Database folder here in the project.
+   - Open the provided `CreateTable.sql` script in the `Database/SQLscripts/` folder.
    - Run the script to create the `NetflixDataset` table.
 
 3. **Import the CSV data:**
    - In SSMS, right-click the `csvNetflixDB` database and choose "Tasks" > "Import Data".
-   - Select the `Netflix Dataset.csv` file as the source from the ~\Database folder in this project.
+   - Select the `Netflix Dataset.csv` file as the source from the `Database/` folder in this project.
    - Map columns as needed and complete the wizard.
 
    *Alternatively, use a `BULK INSERT` command:*
@@ -53,12 +53,31 @@ Open your browser at [http://localhost:5174/swagger](http://localhost:5174/swagg
    ```
 > **Note:** If your SQL Server instance name or authentication differs, update the connection string in `appsettings.json` accordingly.
 
+---
+
+## Using the Frontend
+
+Start the backend API by running:
+```sh
+dotnet run
+```
+in the integrated terminal.
+
+Then, open `frontend/index.html` in your browser.
+
+Use the search forms to query the database by title, director, or cast.  
+Results will be displayed on the page in JSON format.
+
+> Make sure the backend is running before using the frontend.
+
+---
+
 ## Endpoints
 
 - `GET /MyTable` — All data, all at once.
 - `GET /MyTable/title?title=Stranger Things` — Find a show by title.
 - `GET /MyTable/director?director=John Doe` — Search by director.
-- More endpoints? Add them in `MyTableController.cs`.
+- More endpoints? Add them in `src/Controllers/MyTableController.cs`.
 
 ---
 
@@ -92,5 +111,5 @@ Open a pull request, file an issue, or fork away.
 This API is built to be extended, and not only by me.
 I will be very happy if I see forks with comments to help me learn and improve as a developer.
 
----
+
 
