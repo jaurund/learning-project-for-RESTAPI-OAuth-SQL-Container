@@ -6,6 +6,7 @@ document.getElementById('titleForm').addEventListener('submit', function(event) 
     fetch(`http://localhost:5174/MyTable/title?title=${encodeURIComponent(query)}`)
         .then(response => response.json())
         .then(data => {
+            console.log(data); // This will output to the browser console
             document.getElementById('results').innerText = JSON.stringify(data, null, 2);
         })
         .catch(error => {
@@ -19,6 +20,7 @@ document.getElementById('directorForm').addEventListener('submit', function(even
     fetch(`http://localhost:5174/MyTable/director?director=${encodeURIComponent(query)}`)
         .then(response => response.json())
         .then(data => {
+            console.log(data); // This will output to the browser console
             document.getElementById('results').innerText = JSON.stringify(data, null, 2);
         })
         .catch(error => {
@@ -32,6 +34,7 @@ document.getElementById('castForm').addEventListener('submit', function(event) {
     fetch(`http://localhost:5174/MyTable/cast?cast=${encodeURIComponent(query)}`)
         .then(response => response.json())
         .then(data => {
+            console.log(data); // This will output to the browser console
             document.getElementById('results').innerText = JSON.stringify(data, null, 2);
         })
         .catch(error => {
