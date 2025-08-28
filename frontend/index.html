@@ -1,1 +1,32 @@
-<!DOCTYPE html><html><head><link rel="stylesheet" href="style.css"></head><body><script src="app.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database search</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="script" href="app.js">
+</head>
+<body>
+    <h1>Welcome to the Database Search</h1>
+    <p>This is a simple frontend interface.</p>
+    <form id="searchForm">
+        <input type="text" id="searchInput" placeholder="Search...">
+        <button type="submit">Search</button>
+    </form>
+    <form id="titleForm">
+        <input type="text" id="titleInput" placeholder="Search by Title">
+        <button type="submit">Search Title</button>
+    </form>
+    <form id="directorForm">
+        <input type="text" id="directorInput" placeholder="Search by Director">
+        <button type="submit">Search Director</button>
+    </form>
+    <form id="castForm">
+        <input type="text" id="castInput" placeholder="Search by Cast">
+        <button type="submit">Search Cast</button>
+    </form>
+    <div id="results"></div>
+    <script src="app.js"></script>
+</body>
+</html>
